@@ -25,10 +25,10 @@ resource "aws_instance" "my_instance" {
     sudo dnf install pip -y
     sudo dnf install git -y
     pip3 install ansible
+    git clone https://github.com/james-borwick/aws-sandbox.git
     EOF
 
   tags = {
     "Name" = "my-instance-${count.index}"
   }
 }
-
