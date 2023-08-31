@@ -7,8 +7,8 @@ terraform {
   }
 }
 
-resource "aws_key_pair" "my_key" {
-  key_name   = "my-key"
+resource "aws_key_pair" "my_public_key" {
+  key_name   = "my-public-key"
   public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINtb1Gbc6x9BWjeB2Vko8oo2VwqT5QOaEsXD2q/H0cAp jameswork@helenanamessair.lan"
 }
 
@@ -16,7 +16,7 @@ resource "aws_instance" "my_instance" {
   count         = 2
   ami           = "ami-051f7e7f6c2f40dc1"
   instance_type = "t3.micro"
-  key_name      = aws_key_pair.my_key.key_name
+  key_name      = aws_key_pair.my_public_key.key_name
 
   user_data = <<-EOF
     #!/bin/bash
@@ -25,6 +25,7 @@ resource "aws_instance" "my_instance" {
     sudo dnf install pip -y
     sudo dnf install git -y
     pip3 install ansible
+    cd /home/ec2-user/
     git clone https://github.com/james-borwick/aws-sandbox.git
     EOF
 
