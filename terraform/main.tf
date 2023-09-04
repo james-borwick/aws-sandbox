@@ -9,7 +9,7 @@ terraform {
 
 resource "aws_key_pair" "my_public_key" {
   key_name   = "my-public-key"
-  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINtb1Gbc6x9BWjeB2Vko8oo2VwqT5QOaEsXD2q/H0cAp jameswork@helenanamessair.lan"
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFejNOpqWMhXTS6rKkBJrKJd4RNyDMroM/Onlmwwjk4Q james.borwick@MJ001297"
 }
 
 resource "aws_instance" "my_instance" {
