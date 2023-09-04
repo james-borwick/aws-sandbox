@@ -1,3 +1,1 @@
 # my-aws-sandbox
-
-Test
